@@ -7,12 +7,12 @@ updated_at timestamp default null);
 
 insert into users (firstName,lastName,email)
 values
-('Astan','Serikov','serikovastik@gmail.com'),
-('Aziret','Ramankulov','azik@gmail.com'),
-('Almanbet','Totoev','alma@gmail.com'),
-('Iskander','Alymov','iska@gmail.com'),
-('Adilet', 'Torobaev','adilet@gmail.com'),
-('Talgat', 'Bokirov','talgat@gmail.com')
+('Dan','Yankov','denyan@gmail.com'),
+('Lebron','James','Lejas@gmail.com'),
+('Alman','Boyka','albo@gmail.com'),
+('Filka','John','Fijo@gmail.com'),
+('Dana', 'Black','danb@gmail.com'),
+('Seousy', 'Timber','Stimb@gmail.com')
 
 select * from users;
 
