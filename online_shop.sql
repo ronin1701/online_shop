@@ -86,7 +86,7 @@ create table delete_history (
 	entry_date varchar(100) not null,
 	email varchar(100));
 
---delete trigger
+--delete trigger not working
 
 create or replace function deletes()
 returns trigger as
@@ -127,6 +127,28 @@ select * from users;
 select * from delete_history;
 
 delete from users where id  = 1;
+
+----delete trigger
+
+create or replace function delete_func() returns trigger 
+ as $$
+ 	BEGIN
+ 		delete from user_log
+		WHERE user_id = (select id from users where users.id = old.id) ;
+ 		return old;
+ 	END
+ $$ language plpgsql;
+
+ create  trigger delete_user_trg before delete on users
+ for each row execute procedure delete_func();
+
+
+select * from delete_func;
+
+delete from users where id  = 2;
+
+
+
 --insert trigger
 create or replace function insert_user() returns trigger as $$
  	begin
